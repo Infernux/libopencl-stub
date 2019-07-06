@@ -347,6 +347,25 @@ clCreateCommandQueue(cl_context                     context,
   }
 }
 
+cl_command_queue
+clCreateCommandQueueWithProperties(cl_context                     context,
+                     cl_device_id                   device,
+                     const cl_queue_properties *properties,
+                     cl_int *                       errcode_ret)
+{
+    f_clCreateCommandQueueWithProperties func;
+
+    if(!so_handle)
+        open_libopencl_so();
+
+    func = (f_clCreateCommandQueueWithProperties) dlsym(so_handle, "clCreateCommandQueueWithProperties");
+    if(func) {
+        return func(context, device, properties, errcode_ret);
+    } else {
+        return NULL;
+    }
+}
+
 cl_int
 clRetainCommandQueue(cl_command_queue command_queue)
 {
