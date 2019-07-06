@@ -20,6 +20,7 @@ static const char *default_so_paths[] = {
 #elif defined(__ANDROID__)
 static const char *default_so_paths[] = {
   "/system/lib/libOpenCL.so",
+  "/system/vendor/lib64/libOpenCL.so",
   "/system/vendor/lib/libOpenCL.so",
   "/system/vendor/lib/egl/libGLES_mali.so",
   "/system/vendor/lib/libPVROCL.so",
