@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 2.6)
 
-add_library(OpenCL STATIC src/libopencl.c)
+add_library(OpenCL SHARED src/libopencl.c)
 target_include_directories(OpenCL PRIVATE "include")
 
 if(CMAKE_CXX_COMPILER_ID STREQUAL "Clang" OR
